@@ -30,17 +30,3 @@ Mediante estrategias de **gamificación**, buscamos **prolongar el Life Time Val
 
 ---
 
-## 🚀 Instalación y Ejecución
-
-```bash
-# 1️⃣ Clonar el repositorio
-git clone https://github.com/usuario/Streak-Mobile-Service.git
-
-# 2️⃣ Entrar a la carpeta del proyecto
-cd Streak-Mobile-Service
-
-# 3️⃣ Instalar dependencias
-npm install
-
-# 4️⃣ Iniciar en modo desarrollo
-npm run dev
