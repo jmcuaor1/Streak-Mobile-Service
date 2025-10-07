@@ -1,0 +1,150 @@
+/* ===== VARIABLES CSS (CUSTOM PROPERTIES) ===== */
+:root {
+  --primary-color: #2563eb;
+  --primary-dark: #0a1849;
+  --primary-dark-hover: #0f287b;
+  --text-dark: #111827;
+  --text-light: #4b5563;
+  --white: #fff;
+  --background-gradient-start: #f8fafc;
+  --background-gradient-end: #eef2f7;
+  --shadow-color: rgba(0, 0, 0, 0.07);
+  --border-radius-lg: 24px;
+  --font-family: "Poppins", sans-serif;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+/* ===== BODY ===== */
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ===== CONTAINER ===== */
+.onboarding-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+/* ===== CARD (GLASSMORPHISM) ===== */
+.onboarding-card {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-lg);
+  padding: 40px 35px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== HEADER & TEXTOS ===== */
+.onboarding-card header {
+  margin-bottom: 30px;
+}
+
+.onboarding-card h1 {
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.onboarding-card p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ===== ILUSTRACIÓN ===== */
+.onboarding-illustration {
+  width: 150px;
+  margin-bottom: 25px;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ===== FOOTER & BOTÓN ===== */
+.next-btn {
+  background: var(--primary-dark);
+  color: var(--white);
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  position: relative;
+  overflow: hidden;
+}
+
+.next-btn:hover {
+  background: var(--primary-dark-hover);
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.next-btn .arrow,
+.next-btn .checkmark {
+  position: absolute;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.next-btn .arrow {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.next-btn .checkmark {
+  transform: translateX(30px);
+  opacity: 0;
+  font-size: 28px;
+}
+
+/* Estado 'clicked' */
+.next-btn.clicked {
+  background: #28a745; /* Verde éxito */
+  transform: scale(1.1);
+}
+
+.next-btn.clicked .arrow {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+
+.next-btn.clicked .checkmark {
+  transform: translateX(0);
+  opacity: 1;
+}

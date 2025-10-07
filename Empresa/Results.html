@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revise su correo</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+  <div class="check-container">
+    <main class="check-card">
+      <header>
+        <img 
+          src="https://cdn-icons-png.flaticon.com/512/6195/6195699.png"
+          alt="Email enviado"
+          class="check-illustration"
+        >
+        <h1>Revise su correo</h1>
+        <p>
+          Hemos enviado la contraseña de restablecimiento a la dirección de correo electrónico:<br>
+          <strong id="user-email">brandonelouis@gmail.com</strong>
+        </p>
+      </header>
+
+      <section class="actions">
+        <a href="login.html" class="btn-primary">VOLVER A INICIO DE SESIÓN</a>
+      </section>
+
+      <footer>
+        <p class="resend-text">
+          ¿No ha recibido el correo electrónico? 
+          <a href="#" id="resend-link" class="resend-link" aria-disabled="true">Reenviar</a>
+          <span id="resend-timer" class="resend-timer"></span>
+        </p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Contenedor para notificaciones Toast -->
+  <div id="toast-container" class="toast-container" aria-live="assertive"></div>
+
+  <script src="check-email.js"></script>
+</body>
+</html>

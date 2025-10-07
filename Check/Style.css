@@ -1,0 +1,195 @@
+/* ===== VARIABLES CSS (CUSTOM PROPERTIES) ===== */
+:root {
+  --primary-color: #2563eb;
+  --primary-dark: #0a1849;
+  --primary-dark-hover: #0f287b;
+  --text-dark: #111827;
+  --text-light: #6b7280;
+  --background-light: #f9fafb;
+  --background-gradient-start: #f8fafc;
+  --background-gradient-end: #eef2f7;
+  --border-color: #e5e7eb;
+  --white: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.07);
+  --border-radius-lg: 20px;
+  --border-radius-md: 12px;
+  --font-family: "Poppins", sans-serif;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+/* ===== BODY ===== */
+body {
+  background: linear-gradient(180deg, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ===== CONTAINER ===== */
+.check-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* ===== CARD ===== */
+.check-card {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: 35px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== HEADER & TEXTOS ===== */
+.check-card header {
+  margin-bottom: 25px;
+}
+
+/* ===== TEXTOS ===== */
+.check-card h1 {
+  color: var(--text-dark);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.check-card p {
+  color: var(--text-light);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ===== ILUSTRACIÓN ===== */
+.check-illustration {
+  width: 130px;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ===== ACTIONS & FOOTER ===== */
+.actions {
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  background: var(--primary-dark);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark-hover);
+  transform: translateY(-2px);
+}
+
+/* ===== TEXTO REENVIAR ===== */
+.resend-text {
+  font-size: 12.5px;
+  color: var(--text-light);
+  margin-top: 0;
+}
+
+.resend-link {
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.resend-link:hover {
+  color: var(--primary-dark-hover);
+  text-decoration: underline;
+}
+
+.resend-link[aria-disabled="true"] {
+  color: #9ca3af;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+.resend-timer {
+  margin-left: 5px;
+  font-weight: 500;
+}
+
+/* ===== TOAST NOTIFICATION ===== */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.toast {
+  background-color: var(--text-dark);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slideInUp 0.5s forwards, fadeOut 0.5s 2.5s forwards;
+}
+
+.toast-icon {
+  font-size: 16px;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar contraseña</title>
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <script src="https://kit.fontawesome.com/a2e0d6b22f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="forgot-container">
+    <main class="forgot-card">
+      <header>
+        <img 
+          src="https://cdn-icons-png.flaticon.com/512/6483/6483933.png" 
+          alt="Recuperar contraseña" 
+          class="forgot-illustration"
+        >
+        <h1>¿Olvidó su contraseña?</h1>
+        <p>
+          No te preocupes. Introduce tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.
+        </p>
+      </header>
+
+      <form id="forgot-form">
+        <label for="email">Email</label>
+        <div class="input-icon-wrapper">
+          <i class="fas fa-envelope input-icon"></i>
+          <input 
+            type="email" 
+            id="email" 
+            placeholder="brandonelouis@gmail.com" 
+            required
+          >
+        </div>
+
+        <button type="submit" class="btn-primary">RESTABLECER CONTRASEÑA</button>
+        <a href="../Sign up/SignUp.html" class="btn-secondary">VOLVER A INICIO DE SESIÓN</a>
+      </form>
+    </main>
+  </div>
+  <script src="forgot.js"></script>
+</body>
+</html>
