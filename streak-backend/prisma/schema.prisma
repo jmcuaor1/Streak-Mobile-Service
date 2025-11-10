@@ -1,0 +1,224 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      String   // 'client' or 'freelancer'
+  accountStatus String @default("active")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  profile      Profile?
+  gamification Gamification?
+  preferences  Preferences?
+  jobs         Job[]         @relation("JobClient")
+  applications Application[]
+  connections  Connection[]  @relation("ConnectionRequester")
+  receivedConnections Connection[] @relation("ConnectionReceiver")
+  posts        Post[]
+  postLikes    PostLike[]
+  postComments PostComment[]
+
+  @@map("users")
+}
+
+model Profile {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  firstName String
+  lastName  String
+  avatar    String?
+  bio       String?
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("profiles")
+}
+
+model Gamification {
+  id               String   @id @default(cuid())
+  userId           String   @unique
+  totalPoints      Int      @default(0)
+  level            Int      @default(1)
+  currentStreak    Int      @default(0)
+  lastActivityDate DateTime @default(now())
+  achievements      String[] @default([])
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("gamification")
+}
+
+model Preferences {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  theme     String   @default("light")
+  language  String   @default("es")
+  currency  String   @default("USD")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  notifications Notifications?
+
+  @@map("preferences")
+}
+
+model Notifications {
+  id        String   @id @default(cuid())
+  preferencesId String @unique
+  email     Boolean  @default(true)
+  push      Boolean  @default(true)
+  sms       Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  preferences Preferences @relation(fields: [preferencesId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
+
+model Job {
+  id               String   @id @default(cuid())
+  title            String
+  description      String
+  category         String
+  type             String   // 'full-time', 'part-time', 'contract'
+  location         String
+  locationType     String   // 'remote', 'hybrid', 'onsite'
+  experienceLevel  String   // 'junior', 'mid', 'senior'
+  budget           Float?
+  skills           String[]
+  status           String   @default("open") // 'open', 'closed', 'in-progress'
+  clientId         String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  client       User          @relation("JobClient", fields: [clientId], references: [id])
+  applications Application[]
+
+  @@map("jobs")
+}
+
+model Application {
+  id        String   @id @default(cuid())
+  jobId     String
+  userId    String
+  status    String   @default("pending") // 'pending', 'accepted', 'rejected'
+  message   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  job Job  @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([jobId, userId])
+  @@map("applications")
+}
+
+model Connection {
+  id          String   @id @default(cuid())
+  requesterId String
+  receiverId  String
+  status      String   @default("pending") // 'pending', 'accepted', 'rejected'
+  message     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  requester User @relation("ConnectionRequester", fields: [requesterId], references: [id], onDelete: Cascade)
+  receiver  User @relation("ConnectionReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  @@unique([requesterId, receiverId])
+  @@map("connections")
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  content   String
+  type      String   @default("text") // 'text', 'image', 'video'
+  imageUrl  String?
+  tags      String[]
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  author   User          @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  likes    PostLike[]
+  comments PostComment[]
+
+  @@map("posts")
+}
+
+model PostLike {
+  id     String @id @default(cuid())
+  postId String
+  userId String
+
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId])
+  @@map("post_likes")
+}
+
+model PostComment {
+  id        String   @id @default(cuid())
+  content   String
+  postId    String
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  post   Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@map("post_comments")
+}
+
+model Company {
+  id          String   @id @default(cuid())
+  name        String
+  tagline     String?
+  description String?
+  industry    String?
+  size        String?
+  location    String?
+  founded     String?
+  website     String?
+  logo        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  followers CompanyFollow[]
+
+  @@map("companies")
+}
+
+model CompanyFollow {
+  id        String   @id @default(cuid())
+  companyId String
+  userId    String
+  createdAt DateTime @default(now())
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@unique([companyId, userId])
+  @@map("company_follows")
+}

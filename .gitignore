@@ -1,0 +1,341 @@
+# Streak Project - Root .gitignore
+
+# ===================================
+# BACKEND (Node.js + TypeScript)
+# ===================================
+
+# Dependencias
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# Tests
+coverage/
+.nyc_output/
+*.lcov
+
+# Cache
+.cache/
+.eslintcache
+.stylelintcache
+
+# ===================================
+# FRONTEND (Flutter)
+# ===================================
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+**/build/
+
+# Archivos generados de Flutter (NO ignorar - necesarios para compilar)
+# **/*.freezed.dart  # Comentado - estos archivos DEBEN estar en el repo
+# **/*.g.dart        # Comentado - estos archivos DEBEN estar en el repo
+# **/*.mocks.dart    # Comentado - estos archivos DEBEN estar en el repo
+
+# Archivos de credenciales de desarrollo (NO subir a producción)
+**/dev_credentials.dart
+**/dev_flags.dart
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio
+.idea/
+.gradle/
+local.properties
+*.iml
+*.ipr
+*.iws
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+.idea/libraries
+.idea/jarRepositories.xml
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Flutter build files
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/key.properties
+*.jks
+
+# iOS/XCode related
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/*sync/
+**/ios/**/.sconsign.dblite
+**/ios/**/.tags*
+**/ios/**/.vagrant/
+**/ios/**/DerivedData/
+**/ios/**/Icon?
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/profile
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+# macOS
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+
+# Coverage
+coverage/
+
+# Firebase
+**/google-services.json
+**/GoogleService-Info.plist
+firebase-adminsdk-*.json
+*-firebase-adminsdk-*.json
+
+# ===================================
+# DATABASES
+# ===================================
+
+# MongoDB
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# SQLite
+*.sqlite
+*.sqlite3
+
+# ===================================
+# SISTEMA OPERATIVO
+# ===================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+.TemporaryItems
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+.nfs*
+
+# ===================================
+# EDITORES E IDEs
+# ===================================
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Cursor
+.cursor/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+tags
+[._]*.un~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# ===================================
+# ARCHIVOS TEMPORALES
+# ===================================
+
+# Temporal
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+temp/
+tmp/
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# ===================================
+# SEGURIDAD Y CREDENCIALES
+# ===================================
+
+# Claves privadas
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+
+# Archivos de configuración sensibles
+config/secrets.json
+config/credentials.json
+serviceAccountKey.json
+
+# AWS
+.aws/
+
+# ===================================
+# DOCKER
+# ===================================
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# ===================================
+# TESTING Y CI/CD
+# ===================================
+
+# Testing
+test-results/
+playwright-report/
+playwright/.cache/
+
+# CI/CD
+.github/workflows/*.local.yml
+
+# ===================================
+# DOCUMENTACIÓN GENERADA
+# ===================================
+
+# Docs generadas
+docs/api/
+docs/_build/
+site/
+
+# ===================================
+# CUSTOM PROJECT FILES
+# ===================================
+
+# Upload directories
+uploads/
+public/uploads/
+
+# Static assets generados
+public/dist/
+public/build/
+
+# ===================================
+# KEEP THESE FILES (Exceptions)
+# ===================================
+
+# Mantener archivos de ejemplo
+!.env.example
+!.env.sample
+
+# Mantener archivos de configuración base
+!.vscode/settings.json.example
+!.gitkeep
+

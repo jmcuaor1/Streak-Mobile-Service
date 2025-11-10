@@ -1,0 +1,39 @@
+# Dependencias
+node_modules/
+package-lock.json
+
+# Build
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Tests
+coverage/
+.nyc_output/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Firebase
+firebase-service-account.json
+*-firebase-adminsdk-*.json
+
+# Temporal
+*.tmp
+temp/
+tmp/
+

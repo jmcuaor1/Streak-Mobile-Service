@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Añadir post</title>
+  <link rel="stylesheet" href="Style.css">
+  <script src="https://kit.fontawesome.com/a2e0d6b22f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="post-container">
+    <header class="post-header">
+      <i class="fas fa-arrow-left back-icon"></i>
+      <h3>Añadir post</h3>
+      <button type="submit" form="add-post-form" class="post-link">Post</button>
+    </header>
+
+    <div class="post-user">
+      <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Usuario" class="user-img">
+      <div class="user-info">
+        <h4>Orlando Diggs</h4>
+        <p>California, USA</p>
+      </div>
+    </div>
+
+    <form class="post-form" id="add-post-form">
+      <label for="titulo">Título del Post</label>
+      <div class="input-icon-wrapper">
+        <i class="fas fa-pencil-alt input-icon"></i>
+        <input type="text" id="titulo" placeholder="Escriba aquí el título de tu post">
+      </div>
+
+      <label for="descripcion">Descripción</label>
+      <div class="textarea-wrapper">
+        <div class="input-icon-wrapper">
+          <i class="far fa-comment-dots input-icon"></i>
+          <textarea id="descripcion" placeholder="¿De qué quieres hablar?" maxlength="500"></textarea>
+        </div>
+        <div id="image-preview-container" class="image-preview-container"></div>
+        <div class="char-counter-wrapper">
+            <span id="char-counter">0/500</span>
+        </div>
+      </div>
+
+      <footer class="post-footer">
+        <div class="icons">
+          <label for="file-upload-image" class="file-upload-label">
+            <i class="far fa-image"></i>
+          </label>
+          <input type="file" id="file-upload-image" accept="image/*" class="file-upload-input">
+          <label for="file-upload-camera" class="file-upload-label">
+            <i class="fas fa-camera"></i>
+          </label>
+          <input type="file" id="file-upload-camera" accept="image/*" capture="user" class="file-upload-input">
+        </div>
+        <button type="submit" class="btn-add">Añadir historia</button>
+      </footer>
+    </form>
+  </div>
+  <script src="add-post.js"></script>
+</body>
+</html>
